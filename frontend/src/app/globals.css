@@ -1,0 +1,508 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================== ROOT VARIABLES ====================== */
+:root {
+  --gold: #C89B3C;
+  --gold-dark: #A47425;
+  --gold-light: #DDB96A;
+  --brown: #473428;
+  --dark: #1D1D1D;
+  --cream: #F9F4EE;
+  --ivory: #FAF8F5;
+}
+
+/* ====================== BASE ====================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background-color: #F9F4EE;
+  color: #1D1D1D;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====================== CUSTOM CURSOR ====================== */
+* {
+  cursor: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor-ring.hovering {
+  width: 56px;
+  height: 56px;
+  border-color: var(--gold-dark);
+  background: rgba(200, 155, 60, 0.08);
+}
+
+/* ====================== SCROLLBAR ====================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9F4EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* ====================== TYPOGRAPHY ====================== */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+}
+
+button {
+  font-family: 'Poppins', system-ui, sans-serif;
+  cursor: none;
+}
+
+a {
+  cursor: none;
+}
+
+/* ====================== SELECTION ====================== */
+::selection {
+  background: rgba(200, 155, 60, 0.25);
+  color: #1D1D1D;
+}
+
+/* ====================== GOLD DIVIDER ====================== */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C89B3C, transparent);
+  margin: 0 auto;
+}
+
+.gold-divider-left {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #C89B3C, transparent);
+  margin: 0;
+}
+
+/* ====================== GOLD SHINE TEXT ====================== */
+.gold-text {
+  background: linear-gradient(135deg, #C89B3C 0%, #DDB96A 40%, #A47425 60%, #C89B3C 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShine 3s ease-in-out infinite;
+}
+
+@keyframes goldShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ====================== SHIMMER LOADING ====================== */
+.shimmer {
+  background: linear-gradient(90deg, #F2EDE6 0%, #FAF8F5 50%, #F2EDE6 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ====================== BUTTONS ====================== */
+.btn-gold {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #C89B3C, #A47425);
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-gold:hover::after {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 8px 30px rgba(200, 155, 60, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
+  color: #C89B3C;
+  padding: 11px 31px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid #C89B3C;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: #C89B3C;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(200, 155, 60, 0.3);
+}
+
+.btn-dark {
+  font-family: 'Poppins', sans-serif;
+  background: #1D1D1D;
+  color: #fff;
+  padding: 12px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: #473428;
+  box-shadow: 0 4px 20px rgba(71, 52, 40, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ====================== CARDS ====================== */
+.product-card {
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 20px 60px rgba(71, 52, 40, 0.15);
+  transform: translateY(-4px);
+}
+
+.product-card-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card-image img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.08);
+}
+
+/* ====================== LUXURY BADGE ====================== */
+.luxury-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #C89B3C, #A47425);
+  color: #fff;
+}
+
+/* ====================== SECTION LABEL ====================== */
+.section-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C89B3C;
+}
+
+/* ====================== SECTION TITLE ====================== */
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: #1D1D1D;
+  line-height: 1.15;
+}
+
+/* ====================== HERO TITLE ====================== */
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: #1D1D1D;
+}
+
+/* ====================== PAGE TRANSITION ====================== */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ====================== GLASS EFFECT ====================== */
+.glass {
+  background: rgba(249, 244, 238, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 155, 60, 0.15);
+}
+
+.glass-dark {
+  background: rgba(29, 29, 29, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+/* ====================== INPUT STYLES ====================== */
+.luxury-input {
+  font-family: 'Manrope', sans-serif;
+  width: 100%;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #E8DDD3;
+  font-size: 14px;
+  color: #1D1D1D;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.luxury-input:focus {
+  border-color: #C89B3C;
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.1);
+}
+
+.luxury-input::placeholder {
+  color: #A89080;
+  font-size: 13px;
+}
+
+/* ====================== ANIMATIONS ====================== */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes revealLeft {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ====================== SWIPER OVERRIDES ====================== */
+.swiper-pagination-bullet {
+  background: #C89B3C !important;
+  opacity: 0.4;
+  width: 6px;
+  height: 6px;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 24px;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ====================== RANGE SLIDER ====================== */
+[type='range'] {
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: none;
+}
+
+[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #C89B3C;
+  cursor: none;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(200,155,60,0.4);
+  margin-top: -7px;
+}
+
+[type='range']::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #E8DDD3;
+  border-radius: 2px;
+}
+
+/* ====================== NO SCROLLBAR ====================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ====================== STAR RATING ====================== */
+.star-filled {
+  color: #C89B3C;
+  fill: #C89B3C;
+}
+
+.star-empty {
+  color: #E8DDD3;
+  fill: #E8DDD3;
+}
+
+/* ====================== OVERLAY ====================== */
+.overlay-gold {
+  background: linear-gradient(to top, rgba(71,52,40,0.9) 0%, rgba(71,52,40,0.4) 50%, transparent 100%);
+}
+
+/* ====================== NAV ====================== */
+.nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1D1D1D;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C89B3C;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ====================== TOAST ====================== */
+.toast-success {
+  background: #1D1D1D !important;
+  color: #fff !important;
+  border-left: 3px solid #C89B3C !important;
+}
+
+/* ====================== FORM HELPERS ====================== */
+.form-label {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(71, 52, 40, 0.5);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-error {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 11px;
+  color: #ef4444;
+  margin-top: 4px;
+}
