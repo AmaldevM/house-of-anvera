@@ -8,7 +8,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 const SLIDES = [
   {
     id: 1,
-    image: '/hero/hero-1.jpg',
+    image: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1600&q=80',
     label: 'New Bridal Collection 2025',
     title: ['Adorned', 'in Gold'],
     subtitle: 'Discover handcrafted bridal jewelry that tells your story through timeless elegance',
@@ -18,7 +18,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: '/hero/hero-2.jpg',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1600&q=80',
     label: 'Minimal Edit',
     title: ['Effortless', 'Luxury'],
     subtitle: 'Understated pieces crafted for the modern woman who wears elegance every day',
@@ -28,7 +28,7 @@ const SLIDES = [
   },
   {
     id: 3,
-    image: '/hero/hero-3.jpg',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1600&q=80',
     label: 'Limited Edition',
     title: ['Rare &', 'Precious'],
     subtitle: 'One-of-a-kind pieces created by master craftsmen — exclusively yours',

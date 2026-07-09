@@ -4,6 +4,7 @@ import { Providers } from '@/components/Providers';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import { LuxuryFloatingWidget } from '@/components/ui/LuxuryFloatingWidget';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <LuxuryFloatingWidget />
           <Toaster
             position="bottom-right"
             toastOptions={{

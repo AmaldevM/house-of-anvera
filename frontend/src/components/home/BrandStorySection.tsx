@@ -35,7 +35,7 @@ export function BrandStorySection() {
           <div className="relative aspect-[4/5] overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-0">
               <Image
-                src="/about/brand-story.jpg"
+                src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=800&q=80"
                 alt="House of Anvera - Our Story"
                 fill
                 className="object-cover"

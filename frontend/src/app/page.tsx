@@ -5,6 +5,7 @@ import { FeaturedProducts } from '@/components/home/FeaturedProducts';
 import { CollectionsSection } from '@/components/home/CollectionsSection';
 import { NewArrivalsSection } from '@/components/home/NewArrivalsSection';
 import { BrandStorySection } from '@/components/home/BrandStorySection';
+import { TrustBanner } from '@/components/home/TrustBanner';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { InstagramSection } from '@/components/home/InstagramSection';
 
@@ -53,6 +54,7 @@ export default async function HomePage() {
       <CollectionsSection />
       <NewArrivalsSection products={newArrivals} />
       <BrandStorySection />
+      <TrustBanner />
       <TestimonialsSection />
       <InstagramSection />
     </>

@@ -10,12 +10,12 @@ export function InstagramSection() {
   const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   const INSTAGRAM_POSTS = [
-    { id: 1, image: '/instagram/ig-1.jpg', alt: 'Bridal jewelry flatlay' },
-    { id: 2, image: '/instagram/ig-2.jpg', alt: 'Gold ring closeup' },
-    { id: 3, image: '/instagram/ig-3.jpg', alt: 'Necklace on model' },
-    { id: 4, image: '/instagram/ig-4.jpg', alt: 'Earrings on marble' },
-    { id: 5, image: '/instagram/ig-5.jpg', alt: 'Bangles collection' },
-    { id: 6, image: '/instagram/ig-6.jpg', alt: 'Traditional set' },
+    { id: 1, image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80', alt: 'Traditional Jhumka Earrings' },
+    { id: 2, image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80', alt: 'Traditional Gold Necklace' },
+    { id: 3, image: 'https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80', alt: 'Elakkathali Mala' },
+    { id: 4, image: 'https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80', alt: 'Gold Jhumka Earrings' },
+    { id: 5, image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&q=80', alt: 'Chali Mala' },
+    { id: 6, image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80', alt: 'Royal Heritage Set' },
   ];
 
   return (
