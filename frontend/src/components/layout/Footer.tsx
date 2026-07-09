@@ -30,7 +30,7 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_LINKS = [
-  { icon: ExternalLink, href: 'https://instagram.com/houseofanvera', label: 'Instagram' },
+  { icon: ExternalLink, href: 'https://www.instagram.com/houseofanvera?igsh=NTJ1NWY5dmc2OTBw', label: 'Instagram' },
   { icon: Globe, href: 'https://facebook.com/houseofanvera', label: 'Facebook' },
   { icon: Play, href: 'https://youtube.com/@houseofanvera', label: 'YouTube' },
 ];

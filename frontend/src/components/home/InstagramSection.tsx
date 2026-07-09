@@ -34,7 +34,7 @@ export function InstagramSection() {
             style={{ background: 'linear-gradient(90deg, transparent, #C89B3C, transparent)' }}
           />
           <a
-            href="https://instagram.com/houseofanvera"
+            href="https://www.instagram.com/houseofanvera?igsh=NTJ1NWY5dmc2OTBw"
             target="_blank"
             rel="noopener noreferrer"
             className="font-cormorant text-4xl font-light text-dark hover:text-gold transition-colors"
@@ -56,7 +56,7 @@ export function InstagramSection() {
           {INSTAGRAM_POSTS.map((post, i) => (
             <motion.a
               key={post.id}
-              href="https://instagram.com/houseofanvera"
+              href="https://www.instagram.com/houseofanvera?igsh=NTJ1NWY5dmc2OTBw"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -89,7 +89,7 @@ export function InstagramSection() {
           className="text-center mt-8"
         >
           <a
-            href="https://instagram.com/houseofanvera"
+            href="https://www.instagram.com/houseofanvera?igsh=NTJ1NWY5dmc2OTBw"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline-gold inline-flex items-center gap-2"
