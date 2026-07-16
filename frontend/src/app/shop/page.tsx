@@ -1,14 +1,13 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, SlidersHorizontal, X, ChevronDown, Grid3X3, List } from 'lucide-react';
+import { Search, SlidersHorizontal, X, ChevronDown, Grid3X3, List, Loader2 } from 'lucide-react';
 import { ProductCard } from '@/components/ui/ProductCard';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Product } from '@/types';
 import api from '@/lib/api';
 import { SORT_OPTIONS } from '@/lib/constants';
 import { useSearchParams, useRouter } from 'next/navigation';
-import type { Metadata } from 'next';
 
 const MATERIALS = ['Gold', 'Silver', 'Rose Gold', 'Platinum', 'Oxidised Silver'];
 const STONES = ['Diamond', 'Ruby', 'Emerald', 'Pearl', 'Sapphire', 'Kundan'];
@@ -20,7 +19,8 @@ const PRICE_RANGES = [
   { label: 'Above ₹60,000', min: 60000, max: 999999 },
 ];
 
-export default function ShopPage() {
+// Inner component that uses useSearchParams — must be inside Suspense
+function ShopContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -261,5 +261,18 @@ export default function ShopPage() {
         )}
       </div>
     </div>
+  );
+}
+
+// Page wrapper with Suspense boundary
+export default function ShopPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-cream pt-24 flex items-center justify-center">
+        <Loader2 size={32} className="animate-spin text-gold" />
+      </div>
+    }>
+      <ShopContent />
+    </Suspense>
   );
 }

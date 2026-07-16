@@ -1,4 +1,5 @@
 'use client';
+import { Suspense } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -10,7 +11,6 @@ import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 import { toast } from 'sonner';
-import type { Metadata } from 'next';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -18,7 +18,8 @@ const loginSchema = z.object({
 });
 type LoginForm = z.infer<typeof loginSchema>;
 
-export default function LoginPage() {
+// Inner component that safely uses useSearchParams()
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get('redirect') || '/';
@@ -39,6 +40,108 @@ export default function LoginPage() {
     }
   };
 
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full max-w-md"
+    >
+      <div className="mb-8">
+        <Link href="/" className="font-cormorant text-2xl font-semibold tracking-[0.1em] text-dark uppercase block mb-8">
+          House of Anvera
+        </Link>
+        <p className="font-poppins text-[11px] tracking-[4px] text-gold uppercase mb-2">Account</p>
+        <h1 className="font-cormorant text-4xl font-semibold text-dark">Sign In</h1>
+        <GoldDivider align="left" className="mt-4" />
+      </div>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <div>
+          <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">
+            Email Address
+          </label>
+          <input
+            {...register('email')}
+            type="email"
+            placeholder="your@email.com"
+            className="luxury-input"
+            id="login-email"
+          />
+          {errors.email && (
+            <p className="font-manrope text-xs text-red-500 mt-1">{errors.email.message}</p>
+          )}
+        </div>
+
+        <div>
+          <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">
+            Password
+          </label>
+          <div className="relative">
+            <input
+              {...register('password')}
+              type={showPassword ? 'text' : 'password'}
+              placeholder="••••••••"
+              className="luxury-input pr-12"
+              id="login-password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-brown/40 hover:text-gold transition-colors"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
+          </div>
+          {errors.password && (
+            <p className="font-manrope text-xs text-red-500 mt-1">{errors.password.message}</p>
+          )}
+        </div>
+
+        <div className="flex justify-end">
+          <Link href="/forgot-password" className="font-manrope text-xs text-brown/50 hover:text-gold transition-colors">
+            Forgot password?
+          </Link>
+        </div>
+
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="btn-gold w-full flex items-center justify-center gap-2"
+          id="login-submit-btn"
+        >
+          {isLoading ? (
+            <><Loader2 size={16} className="animate-spin" /> Signing in...</>
+          ) : (
+            'Sign In'
+          )}
+        </button>
+      </form>
+
+      <div className="relative my-8">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-off-white" />
+        </div>
+        <div className="relative flex justify-center text-xs">
+          <span className="bg-cream px-4 font-poppins text-[10px] tracking-wider text-brown/40 uppercase">
+            Or
+          </span>
+        </div>
+      </div>
+
+      <p className="font-manrope text-sm text-brown/60 text-center">
+        Don&apos;t have an account?{' '}
+        <Link href="/register" className="text-gold hover:underline font-semibold transition-colors">
+          Create one
+        </Link>
+      </p>
+    </motion.div>
+  );
+}
+
+// Page wraps the form in Suspense to satisfy Next.js App Router requirement
+export default function LoginPage() {
   return (
     <div className="min-h-screen bg-cream flex">
       {/* Left decorative panel */}
@@ -65,102 +168,13 @@ export default function LoginPage() {
 
       {/* Right form panel */}
       <div className="flex-1 flex items-center justify-center px-6 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="w-full max-w-md"
-        >
-          <div className="mb-8">
-            <Link href="/" className="font-cormorant text-2xl font-semibold tracking-[0.1em] text-dark uppercase block mb-8">
-              House of Anvera
-            </Link>
-            <p className="font-poppins text-[11px] tracking-[4px] text-gold uppercase mb-2">Account</p>
-            <h1 className="font-cormorant text-4xl font-semibold text-dark">Sign In</h1>
-            <GoldDivider align="left" className="mt-4" />
+        <Suspense fallback={
+          <div className="w-full max-w-md flex items-center justify-center py-20">
+            <Loader2 size={24} className="animate-spin text-gold" />
           </div>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            <div>
-              <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">
-                Email Address
-              </label>
-              <input
-                {...register('email')}
-                type="email"
-                placeholder="your@email.com"
-                className="luxury-input"
-                id="login-email"
-              />
-              {errors.email && (
-                <p className="font-manrope text-xs text-red-500 mt-1">{errors.email.message}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  {...register('password')}
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="••••••••"
-                  className="luxury-input pr-12"
-                  id="login-password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-brown/40 hover:text-gold transition-colors"
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
-                >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-              </div>
-              {errors.password && (
-                <p className="font-manrope text-xs text-red-500 mt-1">{errors.password.message}</p>
-              )}
-            </div>
-
-            <div className="flex justify-end">
-              <Link href="/forgot-password" className="font-manrope text-xs text-brown/50 hover:text-gold transition-colors">
-                Forgot password?
-              </Link>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="btn-gold w-full flex items-center justify-center gap-2"
-              id="login-submit-btn"
-            >
-              {isLoading ? (
-                <><Loader2 size={16} className="animate-spin" /> Signing in...</>
-              ) : (
-                'Sign In'
-              )}
-            </button>
-          </form>
-
-          <div className="relative my-8">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-off-white" />
-            </div>
-            <div className="relative flex justify-center text-xs">
-              <span className="bg-cream px-4 font-poppins text-[10px] tracking-wider text-brown/40 uppercase">
-                Or
-              </span>
-            </div>
-          </div>
-
-          <p className="font-manrope text-sm text-brown/60 text-center">
-            Don&apos;t have an account?{' '}
-            <Link href="/register" className="text-gold hover:underline font-semibold transition-colors">
-              Create one
-            </Link>
-          </p>
-        </motion.div>
+        }>
+          <LoginForm />
+        </Suspense>
       </div>
     </div>
   );
