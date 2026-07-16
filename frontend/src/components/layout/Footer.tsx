@@ -101,22 +101,22 @@ export function Footer() {
             {/* Contact Info */}
             <div className="flex flex-col gap-3 mb-8">
               <a
-                href="mailto:hello@houseofanvera.com"
+                href="mailto:hackathon039@gmail.com"
                 className="flex items-center gap-3 text-white/60 hover:text-gold transition-colors font-manrope text-sm"
               >
                 <Mail size={14} className="text-gold flex-shrink-0" />
-                hello@houseofanvera.com
+                hackathon039@gmail.com
               </a>
               <a
-                href="tel:+919999999999"
+                href="tel:+919400856725"
                 className="flex items-center gap-3 text-white/60 hover:text-gold transition-colors font-manrope text-sm"
               >
                 <Phone size={14} className="text-gold flex-shrink-0" />
-                +91 99999 99999
+                +91 9400 856 725
               </a>
               <div className="flex items-start gap-3 text-white/60 font-manrope text-sm">
                 <MapPin size={14} className="text-gold flex-shrink-0 mt-0.5" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Kerala, India</span>
               </div>
             </div>
 

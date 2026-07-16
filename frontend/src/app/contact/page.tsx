@@ -1,11 +1,36 @@
-'use client';
-import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, CheckCircle, Loader2 } from 'lucide-react';
-import { SectionHeader } from '@/components/ui/SectionHeader';
-import { GoldDivider } from '@/components/ui/GoldDivider';
-import api from '@/lib/api';
-import { toast } from 'sonner';
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { GoldDivider } from '@/components/ui/GoldDivider';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import ContactForm from './_components/ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | House of Anvera',
+  description: 'Get in touch with House of Anvera. We\'d love to hear from you — questions, customisation requests, or just to say hello.',
+};
+
+const contactDetails = [
+  {
+    icon: MapPin,
+    title: 'Visit Us',
+    lines: ['Kerala, India'],
+  },
+  {
+    icon: Phone,
+    title: 'Call Us',
+    lines: ['+91 9400 856 725'],
+  },
+  {
+    icon: Mail,
+    title: 'Email Us',
+    lines: ['hackathon039@gmail.com'],
+  },
+  {
+    icon: Clock,
+    title: 'Store Hours',
+    lines: ['Mon – Sat: 10:00 AM – 8:00 PM', 'Sunday: 11:00 AM – 6:00 PM'],
+  },
+];
 
 const faqs = [
   {
@@ -35,167 +60,44 @@ const faqs = [
 ];
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', subject: '', message: '',
-  });
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    try {
-      await api.post('/contacts', formData);
-      setSent(true);
-      toast.success('Message sent! We\'ll get back to you within 24 hours.');
-    } catch {
-      toast.error('Failed to send message. Please try again.');
-    } finally {
-      setSending(false);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-cream pt-24">
+    <div className="min-h-screen bg-cream">
       {/* Hero */}
-      <div className="bg-dark py-20 px-6 text-center">
-        <SectionHeader
-          label="Get in Touch"
-          title="Contact Us"
-          subtitle="We'd love to hear from you. Our team is here to help."
-          light
+      <section className="relative bg-dark py-28 px-6 text-center overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=1920&q=80')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         />
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
-        {/* Contact Form */}
-        <div>
-          <h2 className="font-cormorant text-3xl font-semibold text-dark mb-6">Send a Message</h2>
-
-          {sent ? (
-            <div className="flex flex-col items-center justify-center py-16 text-center border border-off-white">
-              <CheckCircle size={48} className="text-gold mb-4" />
-              <h3 className="font-cormorant text-2xl font-semibold text-dark mb-2">Message Received!</h3>
-              <p className="font-manrope text-brown/60">Our team will respond within 24 hours.</p>
-              <button
-                onClick={() => { setSent(false); setFormData({ name: '', email: '', phone: '', subject: '', message: '' }); }}
-                className="btn-outline-gold mt-6"
-              >
-                Send Another
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">Name *</label>
-                  <input
-                    required
-                    value={formData.name}
-                    onChange={e => setFormData(d => ({ ...d, name: e.target.value }))}
-                    className="luxury-input"
-                    placeholder="Your name"
-                    id="contact-name"
-                  />
-                </div>
-                <div>
-                  <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">Email *</label>
-                  <input
-                    required
-                    type="email"
-                    value={formData.email}
-                    onChange={e => setFormData(d => ({ ...d, email: e.target.value }))}
-                    className="luxury-input"
-                    placeholder="your@email.com"
-                    id="contact-email"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">Phone</label>
-                  <input
-                    value={formData.phone}
-                    onChange={e => setFormData(d => ({ ...d, phone: e.target.value }))}
-                    className="luxury-input"
-                    placeholder="+91 98765 43210"
-                    id="contact-phone"
-                  />
-                </div>
-                <div>
-                  <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">Subject</label>
-                  <input
-                    value={formData.subject}
-                    onChange={e => setFormData(d => ({ ...d, subject: e.target.value }))}
-                    className="luxury-input"
-                    placeholder="How can we help?"
-                    id="contact-subject"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="font-poppins text-[10px] tracking-[2px] uppercase text-brown/50 block mb-2">Message *</label>
-                <textarea
-                  required
-                  value={formData.message}
-                  onChange={e => setFormData(d => ({ ...d, message: e.target.value }))}
-                  rows={5}
-                  className="luxury-input resize-none"
-                  placeholder="Tell us how we can help you..."
-                  id="contact-message"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={sending}
-                className="btn-gold flex items-center gap-2"
-                id="contact-submit-btn"
-              >
-                {sending ? (
-                  <><Loader2 size={14} className="animate-spin" /> Sending...</>
-                ) : (
-                  'Send Message'
-                )}
-              </button>
-            </form>
-          )}
+        <div className="absolute inset-0 bg-dark/80" />
+        <div className="relative z-10">
+          <p className="font-poppins text-[11px] tracking-[5px] text-gold uppercase mb-4">Let's Talk</p>
+          <h1 className="font-cormorant text-5xl md:text-7xl font-light text-white mb-6">
+            Get in <em className="not-italic font-semibold" style={{ background: 'linear-gradient(135deg, #C89B3C 0%, #DDB96A 40%, #A47425 60%, #C89B3C 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Touch</em>
+          </h1>
+          <GoldDivider className="mb-6" />
+          <p className="font-manrope text-white/60 text-lg max-w-xl mx-auto">
+            We'd love to hear from you. Our team is here to help with any questions, customisation requests, or just to say hello.
+          </p>
         </div>
+      </section>
 
-        {/* Info + FAQ */}
-        <div>
-          <h2 className="font-cormorant text-3xl font-semibold text-dark mb-6">Our Details</h2>
-          <div className="space-y-6 mb-10">
-            {[
-              {
-                icon: MapPin,
-                title: 'Visit Us',
-                lines: ['123 Jewelry Lane, Bandra West', 'Mumbai, Maharashtra 400050'],
-              },
-              {
-                icon: Phone,
-                title: 'Call Us',
-                lines: ['+91 123 456 7890', '+91 987 654 3210'],
-              },
-              {
-                icon: Mail,
-                title: 'Email Us',
-                lines: ['hello@houseofanvera.com', 'support@houseofanvera.com'],
-              },
-              {
-                icon: Clock,
-                title: 'Store Hours',
-                lines: ['Mon – Sat: 10:00 AM – 8:00 PM', 'Sunday: 11:00 AM – 6:00 PM'],
-              },
-            ].map(info => {
+      {/* Contact Details Strip */}
+      <section className="bg-ivory border-b border-off-white">
+        <div className="max-w-[1400px] mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {contactDetails.map(info => {
               const Icon = info.icon;
               return (
-                <div key={info.title} className="flex gap-4">
+                <div key={info.title} className="flex gap-4 items-start">
                   <div className="w-10 h-10 border border-gold/30 flex items-center justify-center shrink-0">
                     <Icon size={16} className="text-gold" />
                   </div>
                   <div>
-                    <p className="font-poppins text-[11px] tracking-[2px] uppercase text-gold mb-1">{info.title}</p>
+                    <p className="font-poppins text-[10px] tracking-[2px] uppercase text-gold mb-1">{info.title}</p>
                     {info.lines.map(line => (
                       <p key={line} className="font-manrope text-sm text-dark">{line}</p>
                     ))}
@@ -204,31 +106,52 @@ export default function ContactPage() {
               );
             })}
           </div>
+        </div>
+      </section>
 
-          <GoldDivider align="left" className="mb-8" />
+      {/* Main Content */}
+      <div className="max-w-[1400px] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* Contact Form - Client Component */}
+        <div>
+          <h2 className="font-cormorant text-3xl font-semibold text-dark mb-2">Send a Message</h2>
+          <p className="font-manrope text-sm text-brown/60 mb-8">We'll respond within 24 hours.</p>
+          <ContactForm />
+        </div>
 
-          {/* FAQ */}
-          <h3 className="font-cormorant text-2xl font-semibold text-dark mb-5">Frequently Asked</h3>
+        {/* FAQ */}
+        <div>
+          <h2 className="font-cormorant text-3xl font-semibold text-dark mb-2">Frequently Asked</h2>
+          <p className="font-manrope text-sm text-brown/60 mb-8">Quick answers to common questions.</p>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-off-white">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-4 text-left hover:bg-ivory/50 transition-colors"
-                  id={`faq-btn-${i}`}
-                >
+              <details key={i} className="border border-off-white group">
+                <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-ivory/80 transition-colors list-none">
                   <span className="font-manrope text-sm font-medium text-dark pr-4">{faq.q}</span>
-                  <span className={`text-gold transition-transform text-xl leading-none shrink-0 ${openFaq === i ? 'rotate-45' : ''}`}>
-                    +
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <div className="px-4 pb-4">
-                    <p className="font-manrope text-sm text-brown/70 leading-relaxed">{faq.a}</p>
-                  </div>
-                )}
-              </div>
+                  <span className="text-gold text-xl leading-none shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div className="px-4 pb-4">
+                  <p className="font-manrope text-sm text-brown/70 leading-relaxed">{faq.a}</p>
+                </div>
+              </details>
             ))}
+          </div>
+
+          {/* Social */}
+          <div className="mt-10 p-6 bg-dark">
+            <p className="font-poppins text-[10px] tracking-[3px] text-gold uppercase mb-4">Follow Us</p>
+            <p className="font-manrope text-sm text-white/60 mb-4">
+              Stay up to date with our latest collections, behind-the-scenes craftsmanship, and exclusive offers.
+            </p>
+            <a
+              href="https://www.instagram.com/houseofanvera?igsh=NTJ1NWY5dmc2OTBw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold text-xs inline-flex items-center gap-2"
+              id="instagram-link"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @houseofanvera
+            </a>
           </div>
         </div>
       </div>
