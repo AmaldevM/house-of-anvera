@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { LuxuryFeaturesSection } from '@/components/home/LuxuryFeaturesSection';
 import { FeaturedProducts } from '@/components/home/FeaturedProducts';
 import { CollectionsSection } from '@/components/home/CollectionsSection';
+import { BestSellersSection } from '@/components/home/BestSellersSection';
 import { NewArrivalsSection } from '@/components/home/NewArrivalsSection';
 import { BrandStorySection } from '@/components/home/BrandStorySection';
 import { TrustBanner } from '@/components/home/TrustBanner';
@@ -14,22 +15,9 @@ export const metadata: Metadata = {
   description: 'Discover our curated collection of handcrafted luxury jewelry — bridal, traditional, and contemporary pieces that celebrate your most precious moments.',
 };
 
-async function getFeaturedProducts() {
+async function fetchProducts(endpoint: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/featured`, {
-      next: { revalidate: 300 }, // cache 5 minutes
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data.products || [];
-  } catch {
-    return [];
-  }
-}
-
-async function getNewArrivals() {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/new-arrivals`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
       next: { revalidate: 300 },
     });
     if (!res.ok) return [];
@@ -41,9 +29,10 @@ async function getNewArrivals() {
 }
 
 export default async function HomePage() {
-  const [featuredProducts, newArrivals] = await Promise.all([
-    getFeaturedProducts(),
-    getNewArrivals(),
+  const [featuredProducts, bestSellers, newArrivals] = await Promise.all([
+    fetchProducts('/products/featured'),
+    fetchProducts('/products/bestsellers'),
+    fetchProducts('/products/new-arrivals'),
   ]);
 
   return (
@@ -52,6 +41,7 @@ export default async function HomePage() {
       <LuxuryFeaturesSection />
       <FeaturedProducts products={featuredProducts} />
       <CollectionsSection />
+      <BestSellersSection products={bestSellers} />
       <NewArrivalsSection products={newArrivals} />
       <BrandStorySection />
       <TrustBanner />

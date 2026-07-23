@@ -506,3 +506,59 @@ a {
   color: #ef4444;
   margin-top: 4px;
 }
+
+/* ====================== BLOG PROSE ====================== */
+.prose-anvera h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1D1D1D;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.prose-anvera h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #473428;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-anvera p {
+  margin-bottom: 1.4rem;
+}
+
+.prose-anvera ul, .prose-anvera ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.prose-anvera li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-anvera a {
+  color: #C89B3C;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.prose-anvera strong {
+  color: #1D1D1D;
+  font-weight: 600;
+}
+
+.prose-anvera blockquote {
+  border-left: 3px solid #C89B3C;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: #FAF8F5;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #473428;
+}
+
