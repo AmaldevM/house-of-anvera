@@ -11,12 +11,12 @@ import { useWishlistStore } from '@/store/wishlistStore';
 import { cn } from '@/lib/utils';
 
 const MEGA_MENU_COLLECTIONS = [
-  { name: 'Bridal Sets', href: '/collections/bridal', description: 'Complete bridal jewelry collections' },
-  { name: 'Minimal Everyday', href: '/collections/minimal', description: 'Understated pieces for daily wear' },
-  { name: 'Traditional Classics', href: '/collections/traditional', description: 'Time-honored traditional designs' },
-  { name: 'Luxury Reserve', href: '/collections/luxury', description: 'Exclusive handpicked luxury pieces' },
-  { name: 'Limited Edition', href: '/collections/limited-edition', description: 'Rare one-of-a-kind creations' },
-  { name: 'Festival Edit', href: '/collections/festival', description: 'Festive celebration jewelry' },
+  { name: 'Jhumka Earrings', href: '/collections/jhumkas', description: 'Traditional & contemporary Jhumka designs' },
+  { name: 'Chain & Mala Sets', href: '/collections/chains', description: 'Elakkathali, Chali Mala & more' },
+  { name: 'Pendant Sets', href: '/collections/pendants', description: 'Lakshmi pendants & designer sets' },
+  { name: 'Bangles & Kadas', href: '/collections/bangles', description: 'Anti-tarnish bangles for daily wear' },
+  { name: 'Bridal Collection', href: '/collections/bridal', description: 'Complete bridal jewelry sets' },
+  { name: 'Festival Edit', href: '/collections/festival', description: 'Festive & occasion jewellery' },
 ];
 
 export function Navbar() {
@@ -72,7 +72,15 @@ export function Navbar() {
       {/* Top Banner */}
       <div className="bg-dark text-white text-center py-2 px-4">
         <p className="font-poppins text-[10px] tracking-[3px] uppercase text-white/80">
-          Free insured shipping on orders above ₹2,000 &nbsp;·&nbsp; BIS Hallmarked Jewelry
+          ✨ Anti-Tarnish Guarantee &nbsp;·&nbsp; Free shipping above ₹2,000 &nbsp;·&nbsp;
+          <a
+            href="https://www.instagram.com/houseofanvera"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold hover:text-gold/80 transition-colors"
+          >
+            @houseofanvera
+          </a>
         </p>
       </div>
 

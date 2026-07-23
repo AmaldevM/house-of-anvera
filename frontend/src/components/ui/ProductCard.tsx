@@ -75,6 +75,12 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
                 Best Seller
               </span>
             )}
+            <span
+              className="text-[8px] font-poppins tracking-[2px] uppercase px-2 py-0.5"
+              style={{ background: 'rgba(200,155,60,0.15)', color: '#C89B3C', border: '1px solid rgba(200,155,60,0.4)' }}
+            >
+              Anti-Tarnish
+            </span>
           </div>
 
           {/* Quick Actions */}

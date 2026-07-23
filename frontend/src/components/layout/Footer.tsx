@@ -4,12 +4,12 @@ import { ExternalLink, Globe, Play, Mail, Phone, MapPin, ArrowRight } from 'luci
 
 const FOOTER_LINKS = {
   shop: [
-    { label: 'All Jewelry', href: '/shop' },
+    { label: 'All Jewellery', href: '/shop' },
+    { label: 'Jhumka Earrings', href: '/collections/jhumkas' },
+    { label: 'Chain & Mala Sets', href: '/collections/chains' },
+    { label: 'Pendant Sets', href: '/collections/pendants' },
+    { label: 'Bangles & Kadas', href: '/collections/bangles' },
     { label: 'Bridal Collection', href: '/collections/bridal' },
-    { label: 'New Arrivals', href: '/shop?sort=newest' },
-    { label: 'Best Sellers', href: '/shop?sort=-numReviews' },
-    { label: 'Limited Edition', href: '/collections/limited-edition' },
-    { label: 'Gift Cards', href: '/gift-cards' },
   ],
   help: [
     { label: 'About Us', href: '/about' },
@@ -17,13 +17,13 @@ const FOOTER_LINKS = {
     { label: 'Shipping Policy', href: '/shipping' },
     { label: 'Return Policy', href: '/returns' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Care Guide', href: '/care-guide' },
+    { label: 'Anti-Tarnish Care Guide', href: '/care-guide' },
   ],
   account: [
     { label: 'My Account', href: '/account' },
-    { label: 'My Orders', href: '/account/orders' },
+    { label: 'My Orders', href: '/account' },
     { label: 'Wishlist', href: '/wishlist' },
-    { label: 'Track Order', href: '/track-order' },
+    { label: 'Track Order', href: '/contact' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
   ],

@@ -7,55 +7,56 @@ import { getInitials } from '@/lib/utils';
 const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Priya Sharma',
-    location: 'Mumbai',
+    name: 'Nithya Menon',
+    location: 'Kochi, Kerala',
     rating: 5,
     comment:
-      'The bridal set I ordered was absolutely breathtaking. Every piece was crafted with such precision and love. My wedding photos look stunning and I get compliments everywhere I go. House of Anvera truly exceeded my expectations!',
-    product: 'Bridal Diamond Set',
+      'Ordered the Jhumka set and I am absolutely obsessed! The anti-tarnish quality is real — I wear them every single day and they still look brand new after 3 months. House of Anvera truly delivers on their promise!',
+    product: 'Traditional Jhumka Set',
     avatar: null,
   },
   {
     id: 2,
-    name: 'Ananya Krishnan',
-    location: 'Bangalore',
+    name: 'Anjali Krishnan',
+    location: 'Thrissur, Kerala',
     rating: 5,
     comment:
-      'I ordered the minimal gold earrings and they arrived in the most beautiful packaging. The quality is exceptional — lightweight yet sturdy. I wear them every day and receive so many compliments. Will definitely be ordering more!',
-    product: 'Minimal Gold Drops',
+      'DM\'d them on Instagram and got the most helpful response. The Elakkathali Mala I ordered is stunning — exactly as shown in their posts. The packaging was beautiful and delivery was super fast. Will definitely order again!',
+    product: 'Elakkathali Mala',
     avatar: null,
   },
   {
     id: 3,
-    name: 'Meera Patel',
-    location: 'Ahmedabad',
+    name: 'Devika Rajan',
+    location: 'Kozhikode, Kerala',
     rating: 5,
     comment:
-      'House of Anvera has become my go-to for all jewelry gifting. The craftsmanship is superb, the customer service is exceptional, and the pieces always arrive safely. A luxury experience from start to finish.',
-    product: 'Traditional Kundan Necklace',
+      'Been following @houseofanvera for a while and finally ordered. Best decision ever! The Lakshmi pendant set is so beautiful and the anti-tarnish coating means I can wear it daily without worry. Love the quality!',
+    product: 'Lakshmi Pendant Set',
     avatar: null,
   },
   {
     id: 4,
-    name: 'Deepa Nair',
-    location: 'Chennai',
+    name: 'Sreelakshmi V.',
+    location: 'Trivandrum, Kerala',
     rating: 5,
     comment:
-      'Ordered the festival collection pieces for Diwali and was blown away by the quality. The gold work is intricate and the stones are vivid. Packaging is so luxurious that it itself is a gift. Will keep coming back!',
-    product: 'Festival Collection Set',
+      'Gifted the pendant set to my sister for her birthday and she absolutely loved it. The quality is exceptional for the price — you can feel the craftsmanship. The gold finish has stayed perfect. House of Anvera is my go-to now!',
+    product: 'Gold Pendant Set',
     avatar: null,
   },
   {
     id: 5,
-    name: 'Shalini Gupta',
-    location: 'Delhi',
+    name: 'Meera Thomas',
+    location: 'Palakkad, Kerala',
     rating: 5,
     comment:
-      'The limited edition piece I purchased is absolutely one-of-a-kind. It took my breath away when I opened the box. The attention to detail is remarkable — you can tell this was made with genuine love and mastery.',
-    product: 'Limited Edition Ring',
+      'Three souls, one story — and it really shows in every piece. The love that goes into these jewels is evident. I got the bangle set for Onam and it was perfect. Anti-tarnish as promised, gorgeous design. 10/10!',
+    product: 'Festive Bangle Set',
     avatar: null,
   },
 ];
+
 
 const containerVariants = {
   hidden: {},

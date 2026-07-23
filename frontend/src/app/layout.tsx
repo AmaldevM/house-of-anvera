@@ -9,11 +9,11 @@ import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: {
-    default: 'House of Anvera | Luxury Jewelry',
+    default: 'House of Anvera | Anti-Tarnish Traditional Jewellery',
     template: '%s | House of Anvera',
   },
-  description: 'Discover our curated collection of handcrafted luxury jewelry — bridal, traditional, and contemporary pieces that celebrate your most precious moments.',
-  keywords: ['luxury jewelry', 'bridal jewelry', 'handcrafted jewelry', 'gold jewelry', 'diamond jewelry', 'House of Anvera'],
+  description: 'Anti-tarnish traditional jewellery crafted with love from Kerala, India. Daily wear Jhumkas, Chains, Pendant Sets & more. Three souls, one story — crafted with timeless style.',
+  keywords: ['anti-tarnish jewellery', 'traditional jewellery', 'daily wear jewellery', 'Kerala jewellery', 'Jhumka earrings', 'gold jewellery India', 'House of Anvera', 'BIS hallmarked'],
   authors: [{ name: 'House of Anvera' }],
   creator: 'House of Anvera',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://houseofanvera.com'),
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     siteName: 'House of Anvera',
-    title: 'House of Anvera | Luxury Jewelry',
-    description: 'Discover our curated collection of handcrafted luxury jewelry.',
+    title: 'House of Anvera | Anti-Tarnish Traditional Jewellery',
+    description: 'Anti-tarnish traditional jewellery crafted with love. Three souls, one story — Kerala, India.',
     images: ['/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'House of Anvera | Luxury Jewelry',
-    description: 'Discover our curated collection of handcrafted luxury jewelry.',
+    title: 'House of Anvera | Anti-Tarnish Traditional Jewellery',
+    description: 'Anti-tarnish traditional jewellery crafted with love from Kerala, India.',
     images: ['/og-image.jpg'],
   },
   robots: {

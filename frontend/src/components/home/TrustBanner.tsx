@@ -9,24 +9,24 @@ export function TrustBanner() {
 
   const ITEMS = [
     {
-      icon: Award,
-      title: 'BIS Hallmarked Gold',
-      subtitle: '100% government-certified purity for secure investment jewelry',
+      icon: ShieldCheck,
+      title: 'Anti-Tarnish Guarantee',
+      subtitle: 'Every piece stays beautiful — our anti-tarnish coating lasts for years of daily wear',
     },
     {
-      icon: ShieldCheck,
-      title: 'Certified Gemstones',
-      subtitle: 'Every diamond and colored stone is certified by leading laboratories',
+      icon: Award,
+      title: 'BIS Hallmarked',
+      subtitle: '100% government-certified purity — you can trust every piece you wear',
     },
     {
       icon: Truck,
-      title: 'Insured Shipping',
-      subtitle: 'Free secure doorstep delivery across India with transit insurance',
+      title: 'Free Shipping',
+      subtitle: 'Free insured doorstep delivery on orders above ₹2,000 across India',
     },
     {
       icon: RefreshCw,
-      title: '15-Day Exchange',
-      subtitle: 'Hassle-free sizing adjustments and exchange policies',
+      title: 'Order via DM or Website',
+      subtitle: 'Shop here or DM us on Instagram @houseofanvera — we respond fast!',
     },
   ];
 
