@@ -5,29 +5,29 @@ import { Shield, Truck, RefreshCw, Award, Phone, Mail, MapPin } from 'lucide-rea
 
 export const metadata: Metadata = {
   title: 'About Us | House of Anvera',
-  description: 'Discover the story behind House of Anvera — handcrafted luxury jewelry celebrating life\'s most precious moments since 2009.',
+  description: 'Three souls, one story — House of Anvera creates anti-tarnish traditional jewellery crafted with love from Kerala, India.',
 };
 
 const values = [
-  { icon: Award, title: 'Craftsmanship', desc: 'Every piece is handcrafted by master artisans who have honed their skills over generations.' },
-  { icon: Shield, title: 'Purity', desc: 'All our gold jewelry is BIS hallmarked. Every gemstone is sourced ethically and verified for quality.' },
-  { icon: RefreshCw, title: 'Timelessness', desc: 'We design for forever, not trends. Our pieces are investments meant to be worn and loved across generations.' },
-  { icon: Phone, title: 'Intimacy', desc: 'We know our customers by name. Every interaction with House of Anvera is personal, warm, and thoughtful.' },
+  { icon: Shield, title: 'Anti-Tarnish Promise', desc: 'Every piece is crafted to stay beautiful — our anti-tarnish technique means your jewellery lasts years without fading.' },
+  { icon: Award, title: 'BIS Hallmarked', desc: 'We use only certified gold and gemstones. Every piece is hallmarked, so you can trust what you wear.' },
+  { icon: RefreshCw, title: 'Daily Wear Design', desc: 'We design for real life — pieces you can wear every day, not just on special occasions.' },
+  { icon: Phone, title: 'Made with Love', desc: 'Three souls with one dream — every piece is chosen and crafted with genuine love and care.' },
 ];
 
 const timeline = [
-  { year: '2019', title: 'The Beginning', desc: 'Founded with a shared passion for fine jewelry and a dream to make luxury accessible.' },
-  { year: '2020', title: 'First Collection', desc: 'Launched the Heritage Bridal Collection to critical acclaim.' },
-  { year: '2022', title: 'Growing Community', desc: 'Reached 5,000 happy customers across India with a devoted following.' },
-  { year: '2024', title: 'Digital Expansion', desc: 'Brought our atelier experience fully online, reaching customers nationwide.' },
-  { year: '2025', title: 'The Next Chapter', desc: 'Expanding collections with new designs, collaborations, and global shipping.' },
+  { year: '2023', title: 'Three Souls, One Dream', desc: 'Three friends united by a love for traditional jewellery started House of Anvera from Kerala, India.' },
+  { year: '2023', title: 'First Pieces Launched', desc: 'Our first collection of anti-tarnish traditional jewellery launched on Instagram and received an incredible response.' },
+  { year: '2024', title: 'Growing Community', desc: 'Built a loyal community of customers across Kerala and beyond who trust us for daily wear jewellery.' },
+  { year: '2025', title: '61 Posts & Counting', desc: 'Actively sharing new designs, customer moments, and jewellery inspiration on Instagram every week.' },
+  { year: '2025', title: 'Online Store Launch', desc: 'Bringing our DM-based ordering to a full e-commerce experience — order easily, anywhere, anytime.' },
 ];
 
 const stats = [
-  { value: '5000+', label: 'Happy Customers' },
-  { value: '500+', label: 'Unique Designs' },
-  { value: '100%', label: 'BIS Hallmarked' },
-  { value: '40+', label: 'Instagram Posts' },
+  { value: '249+', label: 'Happy Followers' },
+  { value: '61+', label: 'Pieces Showcased' },
+  { value: '100%', label: 'Anti-Tarnish' },
+  { value: '3', label: 'Founding Souls' },
 ];
 
 export default function AboutPage() {

@@ -11,8 +11,8 @@ import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { InstagramSection } from '@/components/home/InstagramSection';
 
 export const metadata: Metadata = {
-  title: 'House of Anvera | Handcrafted Luxury Jewelry',
-  description: 'Discover our curated collection of handcrafted luxury jewelry — bridal, traditional, and contemporary pieces that celebrate your most precious moments.',
+  title: 'House of Anvera | Anti-Tarnish Traditional Jewellery',
+  description: 'Anti-tarnish traditional jewellery crafted with love — Daily wear pieces, Jhumkas, Chains, Pendant Sets & more. Three souls, one story. Shop online from Kerala, India.',
 };
 
 async function fetchProducts(endpoint: string) {

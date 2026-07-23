@@ -43,10 +43,10 @@ export const ORDER_STATUSES = [
 ];
 
 export const LUXURY_FEATURES = [
-  { icon: 'shield', title: 'Lifetime Warranty', description: 'Every piece comes with our lifetime craftsmanship guarantee' },
-  { icon: 'award', title: 'Hallmarked Gold', description: 'BIS hallmarked jewelry for purity you can trust' },
-  { icon: 'package', title: 'Luxury Packaging', description: 'Elegantly packaged in our signature gift boxes' },
+  { icon: 'shield', title: 'Anti-Tarnish', description: 'Our pieces are crafted to stay beautiful — no tarnishing, ever' },
+  { icon: 'award', title: 'BIS Hallmarked', description: 'Every piece is hallmarked for certified purity you can trust' },
+  { icon: 'refresh', title: 'Daily Wear Ready', description: 'Designed for real life — wear it every single day with confidence' },
   { icon: 'truck', title: 'Free Shipping', description: 'Complimentary insured shipping on orders above ₹2,000' },
-  { icon: 'refresh', title: 'Easy Returns', description: '15-day hassle-free return & exchange policy' },
-  { icon: 'phone', title: '24/7 Support', description: 'Dedicated concierge service for all your needs' },
+  { icon: 'package', title: 'Luxury Packaging', description: 'Beautifully boxed in our signature gift packaging' },
+  { icon: 'phone', title: 'DM or Call Us', description: 'Reach us on Instagram or at +91 9400 856 725 anytime' },
 ];

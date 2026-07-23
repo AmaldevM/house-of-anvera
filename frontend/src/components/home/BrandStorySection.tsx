@@ -15,10 +15,10 @@ export function BrandStorySection() {
   const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   const STATS = [
-    { value: '5000+', label: 'Happy Customers' },
-    { value: '12+', label: 'Years of Craft' },
-    { value: '500+', label: 'Unique Designs' },
-    { value: '100%', label: 'BIS Hallmarked' },
+    { value: '249+', label: 'Happy Customers' },
+    { value: '3', label: 'Founding Souls' },
+    { value: '61+', label: 'Pieces Created' },
+    { value: '100%', label: 'Anti-Tarnish' },
   ];
 
   return (
@@ -88,16 +88,16 @@ export function BrandStorySection() {
           </h2>
 
           <p className="font-manrope text-brown/70 text-base leading-relaxed mb-5">
-            Born from a deep reverence for India&apos;s ancient jewelry traditions, House of Anvera
-            was founded on the belief that every woman deserves jewelry that speaks her story.
-            Our master craftsmen, with decades of experience, blend time-honored techniques with
-            modern design sensibilities.
+            House of Anvera was born from a simple truth — three souls who believed that beautiful,
+            traditional jewellery should be wearable every single day, not just locked away for special
+            occasions. Based in Kerala, India, we create anti-tarnish traditional jewellery that
+            stays as beautiful as the day you first wore it.
           </p>
 
           <p className="font-manrope text-brown/70 text-base leading-relaxed mb-10">
-            Every piece we create is a labor of love — from the initial sketch to the final
-            polish. We source only the finest materials, ensuring that each jewel is not just
-            beautiful, but a lasting heirloom for generations to come.
+            Our bio says it best: <em className="text-dark italic">&ldquo;Three souls, one story — crafted with love &amp; timeless style.&rdquo;</em>{' '}
+            Every Jhumka, chain, pendant set, and bangle we create carries that love in every detail.
+            Anti-tarnish. BIS Hallmarked. Made for you.
           </p>
 
           {/* Stats */}
